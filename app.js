@@ -27,12 +27,12 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 function multiply(a, b){
   //eslint-disable-line
-   //look into .map method
-   var mult = [];
-   var product = a*b;
-   mult.push(product);
-   mult.push('The product of ' + a + ' and '+ b + ' is ' + product + '.');
-   return mult;
+  //look into .map method
+  var mult = [];
+  var product = a * b;
+  mult.push(product);
+  mult.push('The product of ' + a + ' and ' + b + ' is ' + product + '.');
+  return mult;
 }
 
 // Here is the test for multiply(); uncomment it to run it
@@ -53,14 +53,14 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-      var sum1 = sum(a, b)[0];
-      var sum2 = sum(sum1, c)[0];
-      var mult1 = multiply(a, b)[0];
-      var mult2 = multiply(mult1, c)[0];
-      var string1 = a + ' and '+ b + ' and ' + c + ' sum to ' + sum2 + '.';
-      var string2 = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + mult2 + '.';
-      return [sum2, mult2, string1, string2];
-    }
+  var sum1 = sum(a, b)[0];
+  var sum2 = sum(sum1, c)[0];
+  var mult1 = multiply(a, b)[0];
+  var mult2 = multiply(mult1, c)[0];
+  var string1 = a + ' and ' + b + ' and ' + c + ' sum to ' + sum2 + '.';
+  var string2 = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + mult2 + '.';
+  return [sum2, mult2, string1, string2];
+}
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
 testSumAndMultiply(4,7,5);
@@ -83,12 +83,12 @@ var testArray = [2, 3, 4]; //eslint-disable-line
 function sumArray(testArray) { //eslint-disable-line
   var sumA1 = sum(testArray[0], testArray[1])[0];
   var sumA2 = sum(sumA1, testArray[2])[0];
-  var stringA1 = testArray[0] + "," + testArray[1] + "," + testArray[2] + " was passed in as an array of numbers, and " + sumA2 + " is their sum.";
-  return [sumA2, stringA1]
+  var stringA1 = testArray[0] + ',' + testArray[1] + ',' + testArray[2] + ' was passed in as an array of numbers, and ' + sumA2 + ' is their sum.';
+  return [sumA2, stringA1];
 
 }
 
-// Here is the test for sumArray(); uncomment it to run it 
+// Here is the test for sumArray(); uncomment it to run it
 
 testSumArray(testArray);
 
@@ -115,7 +115,7 @@ function multiplyArray(testArray) { //eslint-disable-line
 // Here is the test for multiplyArray(); uncomment it to run it
 // testMultiplyArray(testArray);
 
-// Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
+// Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop.
 
 // You're done! Submit the link to the repo following the instructions in Canvas. Or, try out the stretch goal below...
 
@@ -137,10 +137,16 @@ Test this function by hand in the console to get it working, and when you think 
 var testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
-
+  var sums = 1;
+  var numbers = '';
+  dynamicArray.forEach(function(num){
+    numbers = sum(numbers, num)[0] + ',';
+    sums = multiply(sums, Number(num))[0];
+  });
+  return [sums, 'The numbers ' + numbers.slice(0, -1) + ' have a product of ' + sums + '.' ];
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyAnyArray(testDynamicArray);
+testMultiplyAnyArray(testDynamicArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
